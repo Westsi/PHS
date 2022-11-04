@@ -1,0 +1,39 @@
+~~
+RULES
+everything must be comprised of base SI units, themselves made up of int, string, dict, list, etc (base datatypes)
+!~~
+
+
+class Kilogram(int val) {
+    has {
+        int val
+    }
+}
+
+class Gram(int val){
+    has {
+        int val
+    }
+}
+
+
+class Newton(int val){
+    has{
+        Acceleration accel
+        Kilogram mass
+    }
+}
+
+func Gram toGram(Kilogram self){
+    return new Gram(self.val * 1000)
+}
+
+use toGram on Kilogram
+
+func Newton calcEarthGravity(Kilogram self){
+    return new Newton()
+}
+
+global GRAVITIES = D["earth": 9.81] // dictionary or hashmap
+
+global SIUNITS = ["kilogram", "ampere", "meter", "second", "mole", "kelvin", "candela"] // list
